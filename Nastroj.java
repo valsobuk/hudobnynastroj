@@ -1,6 +1,4 @@
-package orchester;
-
-public class Nastroj {
+public class Nastroj implements Saveable {
     private String druh;
     private double cena;
     private String zvuk;
@@ -11,6 +9,14 @@ public class Nastroj {
         this.cena = cena;
         this.zvuk = zvuk;
         this.pocet = pocet;
+    }
+
+    public Nastroj(String druh) {
+        this(druh, 0, "", 0);
+    }
+
+    public Nastroj(String[] data) {
+        load(data);
     }
 
     public String getDruh() { 
@@ -61,4 +67,17 @@ public class Nastroj {
     public String toString() {
         return String.format("Nastroj[druh=%s, cena=%.2f, zvuk=%s, pocet=%d]", druh, cena, zvuk, pocet);
     }
+
+@Override
+public String save() {
+    return "";
+}
+
+@Override
+public void load(String[] data) {
+    setDruh(data[1]);
+    setZvuk(data[3]);
+    setCena(Double.parseDouble(data[2]));
+    setPocet(Integer.parseInt(data[4]));
+}
 }

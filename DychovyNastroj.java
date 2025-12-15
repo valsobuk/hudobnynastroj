@@ -1,5 +1,3 @@
-package orchester;
-
 public class DychovyNastroj extends Nastroj {
     private int pocetDier;
     private String ladenie;

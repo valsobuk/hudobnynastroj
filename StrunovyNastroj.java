@@ -1,5 +1,3 @@
-package orchester;
-
 public class StrunovyNastroj extends Nastroj {
     private int pocetStrun;
     private String ladenie;
@@ -9,6 +7,8 @@ public class StrunovyNastroj extends Nastroj {
         this.pocetStrun = pocetStrun;
         this.ladenie = ladenie;
     }
+
+    public StrunovyNastroj(String[] data) {super(data);}
     public String getLadenie() { 
         return ladenie;
      }
@@ -35,4 +35,12 @@ public class StrunovyNastroj extends Nastroj {
     public String toString() {
         return String.format("StrunovyNastroj[%s, struny=%d]", super.toString(), pocetStrun);
     }
+
+
+@Override
+public void load(String[] data) {
+    super.load(data);
+    setPocetStrun(Integer.parseInt(data[5]));
+    setLadenie(data[6]);
+}
 }

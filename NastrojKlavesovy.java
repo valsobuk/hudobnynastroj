@@ -1,5 +1,3 @@
-package orchester;
-
 public class NastrojKlavesovy extends Nastroj {
     private int pocetKlavesov;
 

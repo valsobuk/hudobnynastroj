@@ -1,5 +1,3 @@
-package orchester;
-
 public class SlacikovyNastroj extends StrunovyNastroj {
     private String sekcia;
 

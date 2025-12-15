@@ -1,10 +1,12 @@
-package orchester;
-
-public class Hrac {
+public class Hrac  implements Saveable{
     private String meno;
     private String priezvisko;
     private Nastroj nastroj;
     private double hodinovaSadzba;
+
+    public Hrac(String[] data) {
+        load(data);
+    }
 
     public Hrac(String meno, String priezvisko, Nastroj nastroj, double hodinovaSadzba) {
         this.meno = meno;
@@ -63,4 +65,18 @@ public class Hrac {
     public String toString() {
         return meno + " " + priezvisko + " - " + nastroj.getDruh();
     }
+
+
+
+@Override
+public String save() {
+    return "";
 }
+
+@Override
+public void load(String[] data) {
+    setMeno(data[1]);
+    setPriezvisko(data[2]);
+    setNastroj(new Nastroj(data[3]));
+    setHodinovaSadzba(Double.parseDouble(data[4]));
+}}

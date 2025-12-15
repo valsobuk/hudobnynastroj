@@ -1,5 +1,3 @@
-package orchester;
-
 public class NastrojRytmicky extends Nastroj {
     private int pocetZvukov;
 
