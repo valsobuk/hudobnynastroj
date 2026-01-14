@@ -8,7 +8,7 @@ public class Main {
         OrchesterLoader loader = new OrchesterLoader();
         
         try {
-            loader.nacitajZoSuboru("orchester.txt");
+            loader.nacitajZoSuboru("orchester/hudobnynastroj/orchester.txt");
             
             ArrayList<Nastroj> nastrojList = loader.getNastrojList();
             ArrayList<Hrac> hracList = loader.getHracList();
@@ -52,7 +52,7 @@ public class Main {
             }
             
             // Vytvorenie lode
-            Lod lod = new Lod("MCzlobaTitanic", "kuuuuupil som sebe listek že še povožim na Titaniiiku,netušil som že skončim na dne atlantiiiiku");
+            Lod lod = new Lod("MC zloba Titanic", "kuuuuupil som sebe listek že še povožim na Titaniiiku,netušil som že skončim na dne atlantiiiiku");
             
             // 6. Hromadný výpis "Akord"
             System.out.println("\n=== Akord ===");
