@@ -1,10 +1,11 @@
+package orchester.hudobnynastroj;
+
 public class SlacikovyNastroj extends StrunovyNastroj {
     private String sekcia;
 
-    public SlacikovyNastroj(String druh, double cena, String zvuk, int pocet,
-                            int pocetStrun, String ladenie, String sekcia) {
+    public SlacikovyNastroj(String druh, double cena, String zvuk, int pocet, int pocetStrun, String ladenie, String sekcia) {
         super(druh, cena, zvuk, pocet, pocetStrun, ladenie);
-        setSekcia(sekcia);
+        this.sekcia = sekcia;
     }
 
     public String getSekcia() {
@@ -12,10 +13,10 @@ public class SlacikovyNastroj extends StrunovyNastroj {
     }
 
     public void setSekcia(String sekcia) {
-        if (sekcia != null && !sekcia.isEmpty()) {
+        if(sekcia != null && !sekcia.equals("")) {
             this.sekcia = sekcia;
         } else {
-            this.sekcia = "neznamy sekcia";
+            this.sekcia = "neznama sekcia";
         }
     }
 
@@ -24,4 +25,3 @@ public class SlacikovyNastroj extends StrunovyNastroj {
         return String.format("SlacikovyNastroj[%s, sekcia=%s]", super.toString(), sekcia);
     }
 }
-

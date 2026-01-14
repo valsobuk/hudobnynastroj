@@ -1,4 +1,6 @@
-public class Nastroj implements Saveable {
+package orchester.hudobnynastroj;
+
+public class Nastroj implements ZvukovyPrvok {
     private String druh;
     private double cena;
     private String zvuk;
@@ -11,19 +13,11 @@ public class Nastroj implements Saveable {
         this.pocet = pocet;
     }
 
-    public Nastroj(String druh) {
-        this(druh, 0, "", 0);
-    }
-
-    public Nastroj(String[] data) {
-        load(data);
-    }
-
     public String getDruh() { 
         return druh; 
     }
     public void setDruh(String druh) { 
-        if(druh!=""){
+        if(druh != null && !druh.equals("")){
             this.druh = druh;
         }else{
             this.druh = "neznamy druh";
@@ -33,7 +27,7 @@ public class Nastroj implements Saveable {
         return cena; 
     }
     public void setCena(double cena) { 
-        if(cena>0){
+        if(cena >= 0){
             this.cena = cena;
         }else{
             this.cena = 0;
@@ -43,7 +37,7 @@ public class Nastroj implements Saveable {
         return zvuk; 
     }
     public void setZvuk(String zvuk) { 
-        if(zvuk!=""){
+        if(zvuk != null && !zvuk.equals("")){
             this.zvuk = zvuk;
         }else{
             this.zvuk = "neznamy zvuk";
@@ -67,17 +61,4 @@ public class Nastroj implements Saveable {
     public String toString() {
         return String.format("Nastroj[druh=%s, cena=%.2f, zvuk=%s, pocet=%d]", druh, cena, zvuk, pocet);
     }
-
-@Override
-public String save() {
-    return "";
-}
-
-@Override
-public void load(String[] data) {
-    setDruh(data[1]);
-    setZvuk(data[3]);
-    setCena(Double.parseDouble(data[2]));
-    setPocet(Integer.parseInt(data[4]));
-}
 }

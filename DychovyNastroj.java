@@ -1,12 +1,13 @@
+package orchester.hudobnynastroj;
+
 public class DychovyNastroj extends Nastroj {
     private int pocetDier;
     private String ladenie;
 
-    public DychovyNastroj(String druh, double cena, String zvuk, int pocet,
-                          int pocetDier, String ladenie) {
+    public DychovyNastroj(String druh, double cena, String zvuk, int pocet, int pocetDier, String ladenie) {
         super(druh, cena, zvuk, pocet);
-        setPocetDier(pocetDier);
-        setLadenie(ladenie);
+        this.pocetDier = pocetDier;
+        this.ladenie = ladenie;
     }
 
     public int getPocetDier() {
@@ -14,10 +15,10 @@ public class DychovyNastroj extends Nastroj {
     }
 
     public void setPocetDier(int pocetDier) {
-        if (pocetDier > 0) {
+        if(pocetDier >= 1) {
             this.pocetDier = pocetDier;
         } else {
-            this.pocetDier = 0;
+            this.pocetDier = 1;
         }
     }
 
@@ -26,7 +27,7 @@ public class DychovyNastroj extends Nastroj {
     }
 
     public void setLadenie(String ladenie) {
-        if (ladenie != null && !ladenie.isEmpty()) {
+        if(ladenie != null && !ladenie.equals("")) {
             this.ladenie = ladenie;
         } else {
             this.ladenie = "nezname ladenie";
@@ -35,7 +36,6 @@ public class DychovyNastroj extends Nastroj {
 
     @Override
     public String toString() {
-        return String.format("DychovyNastroj[%s, dier=%d, ladenie=%s]", super.toString(), pocetDier, ladenie);
+        return String.format("DychovyNastroj[%s, pocetDier=%d, ladenie=%s]", super.toString(), pocetDier, ladenie);
     }
 }
-

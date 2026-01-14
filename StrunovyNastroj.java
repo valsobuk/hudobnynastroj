@@ -1,3 +1,5 @@
+package orchester.hudobnynastroj;
+
 public class StrunovyNastroj extends Nastroj {
     private int pocetStrun;
     private String ladenie;
@@ -7,26 +9,24 @@ public class StrunovyNastroj extends Nastroj {
         this.pocetStrun = pocetStrun;
         this.ladenie = ladenie;
     }
-
-    public StrunovyNastroj(String[] data) {super(data);}
     public String getLadenie() { 
         return ladenie;
      }
     public void setLadenie(String ladenie) { 
-        if(ladenie!=""){
+        if(ladenie != null && !ladenie.equals("")){
             this.ladenie = ladenie;
         }else{
-            this.ladenie = "neznamy ladenie";
+            this.ladenie = "nezname ladenie";
         }
 
     }
     public int getPocetStrun() { return pocetStrun; }
 
     public void setPocetStrun(int pocetStrun) { 
-        if(pocetStrun>0){
+        if(pocetStrun >= 1){
             this.pocetStrun = pocetStrun;
         }else{
-            this.pocetStrun = 0;
+            this.pocetStrun = 1;
         }
     }
  
@@ -35,12 +35,4 @@ public class StrunovyNastroj extends Nastroj {
     public String toString() {
         return String.format("StrunovyNastroj[%s, struny=%d]", super.toString(), pocetStrun);
     }
-
-
-@Override
-public void load(String[] data) {
-    super.load(data);
-    setPocetStrun(Integer.parseInt(data[5]));
-    setLadenie(data[6]);
-}
 }
